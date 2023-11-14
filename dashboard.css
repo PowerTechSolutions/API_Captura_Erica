@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+body{
+    font-family: 'Poppins', sans-serif;
+    background-color: black;
+    margin:0;
+    color:white;
+}
+
+.infos{
+    display:flex;
+    justify-content: space-evenly;
+    margin-top:25px;
+}
+.box{
+    background-color:#1A1C22;
+    border-radius:13px;
+    text-align: center;
+}
+.box span{
+    font-weight: 800;
+    font-size:17px;
+}
+.parte{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+.janelas{
+    width:170%;
+    height:170px;
+    overflow-y: scroll;
+    padding:4px;
+}
+.func{
+    width:110%;
+    height:170px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.alinhar{
+    text-align: left;
+    margin:10px;
+}
+
+#perfil{
+    width:80px;
+    height:80px;
+}
+.qntd{
+    width:170%;
+    height:50px;
+}
+.cpu{
+    width:110%;
+    height:70px;
+    margin-top:10px;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#estado_cpu{
+    color:#05FF00;
+}
+.graficos{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin-top:35px;
+}
+.grafico_cpu{
+    background-color: #1A1C22;
+    border-radius: 13px;
+    align-self: center;
+    width:50%;
+    height:300px;
+}
+::-webkit-scrollbar-track {
+    background-color: gray;
+    border-radius: 10px;
+}
+::-webkit-scrollbar {
+    width: 8px;
+    border-radius: 10px;
+    background: gray;
+}
+::-webkit-scrollbar-thumb {
+    background: white;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover{
+    cursor:pointer;
+}
