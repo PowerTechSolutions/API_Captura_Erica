@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard - Janelas abertas</title>
     <link rel="stylesheet" href="dashboard.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <div class="div_geral">
@@ -42,10 +43,37 @@
     </div>
     <div class="graficos">
     <div class="grafico_cpu">
-
+        <div> 
+            <canvas id="myChart" style="position: relative; height:150px; width:50%"></canvas>
+        </div>
     </div>
 </div>
 </div>
         
 </body>
 </html>
+<script>
+    const ctx = document.getElementById('myChart');
+  
+    new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ['12:00', '13:00', '14:00', '15:00', '16:00', '17:00'],
+        datasets: [{
+          label: 'Uso de CPU',
+          data: [0, 30, 40, 100],
+          borderWidth: 3,
+          backgroundColor: 'black',
+          borderColor: 'gold',
+        },
+      ]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: 0
+          }
+        }
+      }
+    });
+  </script>
