@@ -1,0 +1,59 @@
+import java.io.File
+
+object CodigoPythonConst {
+
+    fun execpython(servicos:MutableList<ServicosMonitorados>) {
+
+        val servicoCadastradorepositorio = ServicoCadastradoRepositorio()
+        servicoCadastradorepositorio.iniciar()
+
+        var CPU = 0
+        var componenteCPU = 0
+
+        for (servico in servicos){
+
+            var apelido = servicoCadastradorepositorio.buscarComponente(servico.FKComponente_cadastrado)
+
+            when(apelido){
+                "CPU" -> {
+                    CPU += 1
+                    componenteCPU = servico.IDComponente_monitorado
+                }
+
+            }
+
+        }
+
+
+        var codigoPython ="""
+import psutil
+import time
+import mysql.connector
+
+UsoCpu = psutil.cpu_percent(interval=1)
+try:
+    mydb = mysql.connector.connect(host = 'localhost', user = 'aluno',password = 'sptech',database = 'PowerTechSolutions')
+    if mydb.is_connected():
+        db_info = mydb.get_server_info()
+        mycursor = mydb.cursor()
+        sql_querryCPU = 'INSERT INTO Monitoramento_RAW VALUES (NULL, CURRENT_TIMESTAMP(), NULL, NULL, %s, NULL, $componenteCPU)'
+        dado = (round(UsoCpu,2),)
+        mycursor.execute(sql_querryCPU, dado)
+        mydb.commit()
+finally:
+    if mydb.is_connected():
+        mycursor.close()
+        mydb.close()
+
+"""
+
+        val nomeArquivoPyDefault = "CodigoPythonConstErica.py"
+
+        File(nomeArquivoPyDefault).writeText(codigoPython)
+        Runtime.getRuntime().exec("py $nomeArquivoPyDefault")
+
+        println("Python excetudado para CPU")
+
+    }
+
+}
