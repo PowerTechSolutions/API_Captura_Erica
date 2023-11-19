@@ -22,8 +22,7 @@ class CapturaJanelas {
             var nomeJanela = JanelasVisiveis[contador].titulo
 
             inserts += jdbcTemplate.update(
-                "INSERT INTO Janelas_Abertas (IDJanela,PIDJanelas,Nome_Janelas,FKMaquina) VALUES (?,?,?,?)",
-                idJanela,pidJanela,nomeJanela,FKMaquina
+                "INSERT INTO Janelas_Abertas (IDJanela,PIDJanelas,Nome_Janelas,FKMaquina) VALUES (${idJanela},${pidJanela},'${nomeJanela}',${FKMaquina})"
             )
 
             contador+=1

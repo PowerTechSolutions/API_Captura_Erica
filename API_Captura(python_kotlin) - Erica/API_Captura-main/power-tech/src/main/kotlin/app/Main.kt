@@ -55,6 +55,7 @@ open class Main {
                     when(apelido){
 
                         "JANELAS" -> funcoes.add("J")
+                        "CPU" -> funcoes.add("C")
                         else -> {
                             funcoes.add("CR")
                         }
