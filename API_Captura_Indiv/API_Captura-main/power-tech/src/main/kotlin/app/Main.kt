@@ -1,6 +1,7 @@
 package app
 
 import Captura
+import CodigoPythonConst
 import MaquinasRepositorio
 import Monitoramento_RAWRepositorio
 import ServicoCadastradoRepositorio
@@ -8,9 +9,12 @@ import ServicoMonitoradoRepositorio
 import ServicosMonitorados
 import Usuario
 import UsuarioRepositorio
+import java.time.Duration
 import java.time.LocalDateTime
 import java.time.LocalTime
+import java.time.LocalTime.*
 import java.util.*
+
 
 open class Main {
     companion object {
@@ -87,57 +91,26 @@ open class Main {
 
             var captura = Captura
 
-            var dataDisco = LocalDateTime.now()
             var dataRedeJanelas = LocalDateTime.now()
 
-            var verificacaoDiaria:Int = 0
+
             var verificacaoSemanal:Int = 0
             var dia_semana:Int = 1
+            var verificacaoMinutos:Int = 0
 
-            var verificacaoDisco = false
             var verificacaoJanela = false
-            var verificacaoRede = false
+            var verificacaoDiaria = 0
 
-            while(true){
 
-                if (capturaJANELAS == 1){
-
-                    if (verificacaoDiaria == 0){
-                        if (capturaJANELAS == 1){
-                            if (verificacaoJanela){
-                                var dataJanelas = repositorio.buscarDataJanela(maquinaEscolhida)
-                                if (dataJanelas.dayOfMonth+1 ==dataAtual.dayOfMonth){
-                                    captura.pegarJanelas(maquinaEscolhida)
-                                }
-                            }else{
-                                captura.pegarJanelas(maquinaEscolhida)
-                                verificacaoJanela = true
-                            }
-                        }
-                        verificacaoDiaria += 1
-                    }
-
+            while (true) {
+                if (capturaJANELAS == 1) {
+                    captura.pegarJanelas(maquinaEscolhida)
                 }
-
-                if (capturaCPU == 1){
+                if (capturaCPU == 1) {
                     CodigoPythonConst.execpython(servicos)
                 }
-
-                var dataAtual = LocalTime.now()
-
-                if (dataAtual.equals("23:59:59")){
-                    verificacaoDiaria = 0
-                    dia_semana += 1
-                }
-
-                if (dia_semana == 7){
-                    verificacaoSemanal = 0
-                    dia_semana = 1
-                }
-
                 Thread.sleep(5000)
             }
-
         }
     }
 }
