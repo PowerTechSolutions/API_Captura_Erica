@@ -2,7 +2,7 @@
 import org.apache.commons.dbcp2.BasicDataSource
 import org.springframework.jdbc.core.JdbcTemplate
 
-object Conexao {
+object ConexaoMysql {
 
     var jdbcTemplate: JdbcTemplate? = null
         get() {
@@ -13,7 +13,7 @@ object Conexao {
                 dataSource.driverClassName = "com.mysql.cj.jdbc.Driver"
                 dataSource.url = "jdbc:mysql://localhost/PowerTechSolutions"
                 dataSource.username = "root"
-                dataSource.password = "@Icecubes123"
+                dataSource.password = "@myLOVEisthe0506"
 
                 val novojdbcTmeplate = JdbcTemplate(dataSource)
 
@@ -25,7 +25,7 @@ object Conexao {
 
         }
 
-    fun iniciar(){
+    fun iniciarMysql(){
         jdbcTemplate = jdbcTemplate!!
     }
 

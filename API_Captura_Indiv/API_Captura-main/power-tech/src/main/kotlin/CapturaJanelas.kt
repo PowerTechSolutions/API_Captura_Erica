@@ -4,8 +4,12 @@ import org.springframework.jdbc.core.JdbcTemplate
 class CapturaJanelas {
     lateinit var jdbcTemplate: JdbcTemplate
 
-    fun iniciar() {
-        jdbcTemplate = Conexao.jdbcTemplate!!
+    fun iniciarSqlServer() {
+        jdbcTemplate = ConexaoSqlServer.jdbcTemplate!!
+    }
+
+    fun iniciarMysql(){
+        jdbcTemplate = ConexaoMysql.jdbcTemplate!!
     }
 
     var looca: Looca = Looca()
