@@ -5,9 +5,14 @@ class ServicoCadastradoRepositorio {
 
     lateinit var jdbcTemplate: JdbcTemplate
 
-    fun iniciar(){
-        jdbcTemplate = Conexao.jdbcTemplate!!
+    fun iniciarMysql(){
+        jdbcTemplate = ConexaoMysql.jdbcTemplate!!
     }
+
+    fun iniciarSql(){
+        jdbcTemplate = ConexaoSqlServer.jdbcTemplate!!
+    }
+
 
     fun buscarComponente(IDComponente:Int):String{
 

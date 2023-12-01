@@ -5,9 +5,14 @@ class MaquinasRepositorio {
 
     lateinit var jdbcTemplate: JdbcTemplate
 
-    fun iniciar(){
-        jdbcTemplate = Conexao.jdbcTemplate!!
+    fun iniciarMysql(){
+        jdbcTemplate = ConexaoMysql.jdbcTemplate!!
     }
+
+    fun iniciarSql(){
+        jdbcTemplate = ConexaoMysql.jdbcTemplate!!
+    }
+
 
     fun pegarMaquinas(IDFuncionario:Int):String{
         var maquinas = jdbcTemplate.query("""

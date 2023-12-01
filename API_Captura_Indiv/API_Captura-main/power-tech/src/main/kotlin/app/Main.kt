@@ -27,21 +27,29 @@ open class Main {
             val servicoMonitoradorepositorio = ServicoMonitoradoRepositorio()
             val servicoCadastradorepositorio = ServicoCadastradoRepositorio()
 
-            servicoCadastradorepositorio.iniciar()
-            servicoMonitoradorepositorio.iniciar()
-            maquina_repositorio.iniciar()
-            usuario_repositorio.iniciar()
+            servicoCadastradorepositorio.iniciarSql()
+            servicoMonitoradorepositorio.iniciarSql()
+            maquina_repositorio.iniciarSql()
+            usuario_repositorio.iniciarSql()
+
+            servicoCadastradorepositorio.iniciarMysql()
+            servicoMonitoradorepositorio.iniciarMysql()
+            maquina_repositorio.iniciarMysql()
+            usuario_repositorio.iniciarMysql()
 
             val sn = Scanner(System.`in`)
 
             println("Bem vindo a PowerTech Por favor realize o login para utilizar nosso sistema")
 
-            println("Insira seu Cpf: ")
-            var Cpf:String = sn.next()
+            println("Insira seu email: ")
+            var email:String = sn.next()
 
-            if (usuario_repositorio.autenticar(Cpf)){
+            println("Insira sua senha: ")
+            var senha:String = sn.next()
 
-                var funcionario:Usuario = usuario_repositorio.resgatarinfo(Cpf)
+            if (usuario_repositorio.autenticar(email,senha)){
+
+                var funcionario:Usuario = usuario_repositorio.resgatarinfo(email,senha)
 
                 var maquinas:String = maquina_repositorio.pegarMaquinas(funcionario.IDUsuario)
                 println("Qual a numeração da maquina e está que está instalando o serviço? $maquinas")
@@ -87,7 +95,8 @@ open class Main {
             }
 
             var repositorio = Monitoramento_RAWRepositorio()
-            repositorio.iniciar()
+            repositorio.iniciarSql()
+            repositorio.iniciarMysql()
 
             var captura = Captura
 

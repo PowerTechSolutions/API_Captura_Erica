@@ -1,6 +1,6 @@
 import org.apache.commons.dbcp2.BasicDataSource
 import org.springframework.jdbc.core.JdbcTemplate
-class ConexaoSqlServer {
+object ConexaoSqlServer {
     var jdbcTemplate: JdbcTemplate? = null
         get() {
             if (field == null){
