@@ -14,7 +14,6 @@ object ConexaoMysql {
                 dataSource.url = "jdbc:mysql://localhost/PowerTechSolutions"
                 dataSource.username = "root"
                 dataSource.password = "@myLOVEisthe0506"
-
                 val novojdbcTmeplate = JdbcTemplate(dataSource)
 
                 field = novojdbcTmeplate
