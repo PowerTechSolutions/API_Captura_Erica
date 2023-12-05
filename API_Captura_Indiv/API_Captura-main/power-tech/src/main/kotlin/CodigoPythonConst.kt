@@ -6,7 +6,6 @@ object CodigoPythonConst {
 
         val servicoCadastradorepositorio = ServicoCadastradoRepositorio()
         servicoCadastradorepositorio.iniciarSql()
-        servicoCadastradorepositorio.iniciarMysql()
 
         var CPU = 0
         var componenteCPU = 0
@@ -46,8 +45,8 @@ object CodigoPythonConst {
             
             mydb = mysql.connector.connect(
                 host='localhost',
-                user='root',
-                password='urubu100',
+                user='aluno',
+                password='sptech',
                 database='PowerTechSolutions'
             )
             mycursor = mydb.cursor()
@@ -57,14 +56,14 @@ object CodigoPythonConst {
                 
                 sql_query_CPU = 'INSERT INTO Monitoramento_RAW VALUES (NULL, CURRENT_TIMESTAMP(), NULL, NULL, NULL, %s, %s)'
                 componenteCPU = 1
-                dado = (round(UsoCpu, 2), componenteCPU)
+                dado = (round(UsoCpu, 2), $componenteCPU)
                 
                 mycursor.execute(sql_query_CPU, dado)
                 mydb.commit()
         
                 sql_insert_CPU = "INSERT INTO Monitoramento_RAW VALUES (null, CURRENT_TIMESTAMP(), NULL, NULL, NULL, %s, %s)"
                 componenteCPU = 1
-                dado = (round(UsoCpu, 2), componenteCPU)
+                dado = (round(UsoCpu, 2), $componenteCPU)
         
                 cursor_mssql.execute(sql_insert_CPU, dado)
                 conn_mssql.commit()

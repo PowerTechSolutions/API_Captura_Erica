@@ -11,7 +11,7 @@ class UsuarioRepositorio {
     fun autenticar(email:String,senha:String):Boolean{
 
         var usuario = jdbcTemplate.queryForObject(
-            "SELECT * FROM Usuario_Dashboard WHERE Email = $email AND Senha = $senha",
+            "SELECT * FROM Usuario_Dashboard WHERE Email = '$email' AND Senha = '$senha'",
             BeanPropertyRowMapper(Usuario::class.java)
         )
 
@@ -26,7 +26,7 @@ class UsuarioRepositorio {
     fun resgatarinfo(email:String,senha:String):Usuario{
 
         var usuario = jdbcTemplate.queryForObject(
-            "SELECT * FROM Usuario_Dashboard WHERE Email = $email AND Senha = $senha",
+            "SELECT * FROM Usuario_Dashboard WHERE Email = '$email' AND Senha = '$senha'",
             BeanPropertyRowMapper(Usuario::class.java)
         )
 

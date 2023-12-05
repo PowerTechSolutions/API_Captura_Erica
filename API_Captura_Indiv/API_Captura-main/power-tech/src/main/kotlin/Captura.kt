@@ -6,7 +6,7 @@ object Captura {
         capturajanela.iniciarMysql()
         var inserts = capturajanela.captura(maquinaEscolhida)
 
-        capturajanela.iniciarSqlServer()
+        capturajanela.iniciarSql()
 
         var inserts2 = capturajanela.captura(maquinaEscolhida)
 
