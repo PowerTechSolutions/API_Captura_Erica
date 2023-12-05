@@ -4,9 +4,11 @@ object Captura {
 
         var capturajanela = CapturaJanelas()
         capturajanela.iniciarMysql()
+        var inserts = capturajanela.captura(maquinaEscolhida)
+
         capturajanela.iniciarSqlServer()
 
-        var inserts = capturajanela.captura(maquinaEscolhida)
+        var inserts2 = capturajanela.captura(maquinaEscolhida)
 
         println("$inserts Registro(s) de atividade inseridos em janelas")
 

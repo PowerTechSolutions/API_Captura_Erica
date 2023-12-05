@@ -22,7 +22,7 @@ object ConexaoSqlServer {
 
         }
 
-    fun iniciarSqlServer(){
+    fun iniciarSqlserver(){
         jdbcTemplate = jdbcTemplate!!
     }
 }

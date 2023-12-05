@@ -24,7 +24,7 @@ object ConexaoMysql {
 
         }
 
-    fun iniciarMysql(){
+    fun iniciarMysqlServer(){
         jdbcTemplate = jdbcTemplate!!
     }
 

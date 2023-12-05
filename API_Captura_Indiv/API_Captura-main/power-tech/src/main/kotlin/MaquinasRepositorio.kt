@@ -5,10 +5,6 @@ class MaquinasRepositorio {
 
     lateinit var jdbcTemplate: JdbcTemplate
 
-    fun iniciarMysql(){
-        jdbcTemplate = ConexaoMysql.jdbcTemplate!!
-    }
-
     fun iniciarSql(){
         jdbcTemplate = ConexaoMysql.jdbcTemplate!!
     }

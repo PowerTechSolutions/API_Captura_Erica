@@ -9,10 +9,6 @@ class Monitoramento_RAWRepositorio {
 
     lateinit var jdbcTemplate: JdbcTemplate
 
-    fun iniciarMysql(){
-        jdbcTemplate = ConexaoMysql.jdbcTemplate!!
-    }
-
     fun iniciarSql(){
         jdbcTemplate = ConexaoSqlServer.jdbcTemplate!!
     }

@@ -4,7 +4,7 @@ import org.springframework.jdbc.core.JdbcTemplate
 class CapturaJanelas {
     lateinit var jdbcTemplate: JdbcTemplate
 
-    fun iniciarSqlServer() {
+    fun iniciarSql() {
         jdbcTemplate = ConexaoSqlServer.jdbcTemplate!!
     }
 

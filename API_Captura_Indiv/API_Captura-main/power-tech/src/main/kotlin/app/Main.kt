@@ -32,11 +32,6 @@ open class Main {
             maquina_repositorio.iniciarSql()
             usuario_repositorio.iniciarSql()
 
-            servicoCadastradorepositorio.iniciarMysql()
-            servicoMonitoradorepositorio.iniciarMysql()
-            maquina_repositorio.iniciarMysql()
-            usuario_repositorio.iniciarMysql()
-
             val sn = Scanner(System.`in`)
 
             println("Bem vindo a PowerTech Por favor realize o login para utilizar nosso sistema")
@@ -96,19 +91,8 @@ open class Main {
 
             var repositorio = Monitoramento_RAWRepositorio()
             repositorio.iniciarSql()
-            repositorio.iniciarMysql()
 
             var captura = Captura
-
-            var dataRedeJanelas = LocalDateTime.now()
-
-
-            var verificacaoSemanal:Int = 0
-            var dia_semana:Int = 1
-            var verificacaoMinutos:Int = 0
-
-            var verificacaoJanela = false
-            var verificacaoDiaria = 0
 
 
             while (true) {
