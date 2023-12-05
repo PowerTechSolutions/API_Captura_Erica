@@ -7,9 +7,13 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="power-tech (2)" />
-        <module name="power-tech" />
+        <module name="teste_erica" />
         <module name="power-tech (1)" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="power-tech" target="1.8" />
+      <module name="teste_indv_kaori" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>
