@@ -12,8 +12,8 @@ object ConexaoMysql {
 
                 dataSource.driverClassName = "com.mysql.cj.jdbc.Driver"
                 dataSource.url = "jdbc:mysql://localhost/PowerTechSolutions"
-                dataSource.username = "aluno"
-                dataSource.password = "sptech"
+                dataSource.username = "root"
+                dataSource.password = "root"
                 val novojdbcTmeplate = JdbcTemplate(dataSource)
 
                 field = novojdbcTmeplate
