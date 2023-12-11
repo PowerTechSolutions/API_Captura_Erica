@@ -102,7 +102,7 @@ open class Main {
                 if (capturaCPU == 1) {
                     CodigoPythonConst.execpython(servicos)
                 }
-                Thread.sleep(5000)
+                Thread.sleep(60000)
             }
         }
     }
